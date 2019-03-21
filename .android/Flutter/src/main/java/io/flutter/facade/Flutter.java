@@ -93,7 +93,7 @@ public final class Flutter {
       public void onCreate() {
         final FlutterRunArguments arguments = new FlutterRunArguments();
         arguments.bundlePath = FlutterMain.findAppBundlePath(activity.getApplicationContext());
-        arguments.entrypoint = "main4";
+        arguments.entrypoint = "main";
         flutterView.runFromBundle(arguments);
         GeneratedPluginRegistrant.registerWith(flutterView.getPluginRegistry());
       }
