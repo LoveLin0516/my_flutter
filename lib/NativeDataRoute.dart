@@ -11,6 +11,7 @@ class NativeDataRoute extends StatefulWidget {
 }
 
 class _SampleAppPageState extends State<NativeDataRoute> {
+  //指定platform的channel_name
   static const platform = const MethodChannel('com.example.native.data');
 
   String _nativeListData = "'Unknown battery level.';";
