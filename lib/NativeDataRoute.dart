@@ -21,11 +21,19 @@ class _SampleAppPageState extends State<NativeDataRoute> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("ListView FromNetRoute"),
-        ),
-        body: _buildListView());
+    return WillPopScope(
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text("NativeDataRoute"),
+          ),
+          body: _buildListView()),
+      onWillPop: () {
+        print("返回键点击了");
+        if (Navigator.canPop(context)) {
+          Navigator.pop(context);
+        }
+      },
+    );
   }
 
   @override

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-
 class NetDataRoute extends StatefulWidget {
   NetDataRoute({Key key}) : super(key: key);
 
@@ -24,22 +23,30 @@ class _SampleAppPageState extends State<NetDataRoute> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("ListView FromNetRoute"),
-        ),
-        body: _buildListView());
+    return WillPopScope(
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text("NetDataRoute"),
+          ),
+          body: _buildListView()),
+
+      onWillPop: () {
+        print("返回键点击了");
+        if (Navigator.canPop(context)) {
+          Navigator.pop(context);
+        }
+      },
+    );
   }
 
   // #docregion _buildSuggestions
   Widget _buildListView() {
-
     return ListView.builder(
         padding: const EdgeInsets.all(16.0),
-
         itemCount: widgets.length * 2,
         itemBuilder: /*1*/ (context, i) {
-          if (i.isOdd) return Divider(); /*2*/
+          if (i.isOdd) return Divider();
+          /*2*/
 
           final index = i ~/ 2; /*3*/
 
@@ -48,14 +55,13 @@ class _SampleAppPageState extends State<NetDataRoute> {
   }
 
   Widget getRow(int i) {
-
     return Padding(
         padding: EdgeInsets.all(10.0),
-        child: Text("${widgets[i]["title"]}",style: _biggerFont,)
-    );
+        child: Text(
+          "${widgets[i]["title"]}",
+          style: _biggerFont,
+        ));
   }
-
-
 
   loadData() async {
     String dataURL = "https://jsonplaceholder.typicode.com/posts";
@@ -64,5 +70,4 @@ class _SampleAppPageState extends State<NetDataRoute> {
       widgets = json.decode(response.body);
     });
   }
-
 }
