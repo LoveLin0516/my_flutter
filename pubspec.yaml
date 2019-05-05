@@ -44,6 +44,8 @@ flutter:
   uses-material-design: true
   assets:
     - images/lake.jpg
+    - images/sweeper_ic_back.png
+    - images/sweeper_ic_offline.png
 
   # To add Flutter specific assets to your application, add an assets section, 
   # like this:
