@@ -27,10 +27,11 @@ class MyApp extends StatelessWidget {
       case 'route2':
         return SecondRoute();
       default:
-        return Center(
-          child: Text(
-              'Unknown route: $route', textDirection: TextDirection.ltr),
-        );
+        return FirstRoute();
+//        return Center(
+//          child: Text(
+//              'Unknown route: $route', textDirection: TextDirection.ltr),
+//        );
     }
   }
 
