@@ -39,3 +39,5 @@ build/
 .ios/Flutter/Generated.xcconfig
 .flutter-plugins
 .android/.gradle
+.idea
+
