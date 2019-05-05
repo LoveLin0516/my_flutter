@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // Uncomment lines 7 and 10 to view the visual layout at runtime.
 // import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
@@ -17,14 +18,22 @@ class RobotAbout extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.fromLTRB(13, 10, 13, 10),
-            child: Image.asset(
-              'images/sweeper_ic_back.png',
-              width: 24,
-              height: 24,
-              fit: BoxFit.cover,
-            ),
-          ),
+              padding: const EdgeInsets.fromLTRB(13, 10, 13, 10),
+              child: GestureDetector(
+                onTap: () {
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  } else {
+                    SystemNavigator.pop();
+                  }
+                },
+                child: Image.asset(
+                  'images/sweeper_ic_back.png',
+                  width: 24,
+                  height: 24,
+                  fit: BoxFit.cover,
+                ),
+              )),
           Container(
             alignment: Alignment.center,
             child: Text(
@@ -122,24 +131,19 @@ class RobotAbout extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                margin: const EdgeInsets.only(left: 15),
-
-                                child: GestureDetector(
-                                  onTap: (){
-
-                                  },
-                                  child: Text(
-                                    "复制",
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff303ab2),
+                                  margin: const EdgeInsets.only(left: 15),
+                                  child: GestureDetector(
+                                    onTap: () {},
+                                    child: Text(
+                                      "复制",
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color(0xff303ab2),
+                                      ),
                                     ),
-                                  ),
-                                )
-
-                              )
+                                  ))
                             ],
                           )
                         ],
@@ -182,52 +186,40 @@ class RobotAbout extends StatelessWidget {
                       )),
 
                   Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.only(top: 20),
-                    height: 55,
-                    color: const Color(0xffffffff),
-
-                    child: GestureDetector(
-                      onTap: (){
-
-                      },
-                      child: Text(
-                        "恢复出厂设置",
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xff303ab2),
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(top: 20),
+                      height: 55,
+                      color: const Color(0xffffffff),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          "恢复出厂设置",
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xff303ab2),
+                          ),
                         ),
-                      ),
-                    )
-
-                  ),
+                      )),
 
                   Container(
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.only(top: 20),
-                    height: 55,
-                    color: const Color(0xffffffff),
-
-                    child: GestureDetector(
-                      onTap: (){
-
-                      },
-                      child: Text(
-                        "配置网络",
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xff303ab2),
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(top: 20),
+                      height: 55,
+                      color: const Color(0xffffffff),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          "配置网络",
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xff303ab2),
+                          ),
                         ),
-                      ),
-                    )
-
-
-                  ),
-
+                      )),
                 ],
               ),
             ),

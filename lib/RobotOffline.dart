@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // Uncomment lines 7 and 10 to view the visual layout at runtime.
 // import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
@@ -11,21 +12,29 @@ void main() {
 class RobotOffline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     Widget titleLayout = Container(
       height: 44,
       color: const Color(0xffffffff),
       child: Stack(
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.fromLTRB(13, 10, 13, 10),
-            child: Image.asset(
-              'images/sweeper_ic_back.png',
-              width: 24,
-              height: 24,
-              fit: BoxFit.cover,
-            ),
-          ),
+              padding: const EdgeInsets.fromLTRB(13, 10, 13, 10),
+              child: GestureDetector(
+                onTap: () {
+                  if(Navigator.canPop(context)){
+                    Navigator.pop(context);
+                  }
+                  else{
+                    SystemNavigator.pop();
+                  }
+                },
+                child: Image.asset(
+                  'images/sweeper_ic_back.png',
+                  width: 24,
+                  height: 24,
+                  fit: BoxFit.cover,
+                ),
+              )),
           Container(
             alignment: Alignment.center,
             child: Text(
@@ -63,7 +72,6 @@ class RobotOffline extends StatelessWidget {
                     height: 150,
                     fit: BoxFit.cover,
                   ),
-
                   Container(
                     margin: const EdgeInsets.only(top: 20),
                     child: Text(
@@ -75,7 +83,6 @@ class RobotOffline extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Container(
                     margin: const EdgeInsets.only(top: 11),
                     child: Text(
@@ -87,8 +94,6 @@ class RobotOffline extends StatelessWidget {
                       ),
                     ),
                   )
-
-
                 ],
               ),
             ),
