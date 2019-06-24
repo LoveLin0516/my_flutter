@@ -35,9 +35,20 @@ xcuserdata
 Icon?
 .tags*
 
+.ios
 build/
 .ios/Flutter/Generated.xcconfig
 .flutter-plugins
 .android/.gradle
 .idea
-
+*.iml
+**/.android/local.properties
+.gradle
+/build
+*/build
+/captures
+.externalNativeBuild
+keystore.properties
+/local
+.android/Flutter
+.ios/Flutter/
